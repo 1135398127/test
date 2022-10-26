@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        function ck(type){
+            var name = $("#name");
+            var pw = $("#pw");
+            if(type == 1){//提交
+                if(name.val().trim() == ""){
+                    alert("请输入用户名");
+                    $("#name").focus();
+                    return false;
+                }else if(pw.val().trim() == "") {
+                    alert("请输入密码");
+                    $("#pw").focus();
+                    return false;
+                }
+                alert("登陆成功");
+            }else if(type ==2){
+                if(confirm("是否清空数据？")){
+                    $("#name").val("") ;
+                    $("#pw").val("");
+                }
+            }
+        };
+    </script>
+</head>
+<body>
+    <div>
+        用户名:<input id = "name" type ="text" placeholder="请输入用户名"></input>
+    </div>
+    <div>
+        密&nbsp&nbsp&nbsp码:<input id = "pw" type ="password" placeholder="请输入密码"></input>
+    </div>
+    <div>
+        <span>
+            <input type="button" onclick ="ck(1)" value ="提交" />
+            <input type="button" onclick="ck(2)" value = "重置" />
+        </span>
+    </div>
+</body>
+</html>
